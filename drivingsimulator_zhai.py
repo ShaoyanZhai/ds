@@ -371,6 +371,14 @@ class World(object):
             pass
 
     def tick(self, clock):
+                # 获取车辆的控制信息
+        control = self.player.get_control()
+        # 获取车辆的速度
+        velocity = self.player.get_velocity()
+        speed = 3.6 * math.sqrt(velocity.x**2 + velocity.y**2 + velocity.z**2)
+        # 打印所需的数据
+        print(f"veh_id: {self.player.id}, time: {self.hud.simulation_time}, frame: {self.frame}, speed x,y: {velocity.x, velocity.y}, throttle: {control.throttle}, steer: {control.steer}, brake: {control.brake}")
+
         self.hud.tick(self, clock)
 
     def render(self, display):
@@ -1414,14 +1422,5 @@ if __name__ == '__main__':
     data_thread= threading.Thread(target=accept_connections)
     data_thread.start()
     main()
-def print_attributes(self):
-    print(f"veh_id: {self.veh_id}")
-    print(f"time: {self.time}")
-    print(f"frame: {self.frame}")
-    print(f"speed: {self.speed}")
-    print(f"x: {self.x}")
-    print(f"y: {self.y}")
-    print(f"throttle: {self.throttle}")
-    print(f"steer: {self.steer}")
-    print(f"brake: {self.brake}")
+
 
