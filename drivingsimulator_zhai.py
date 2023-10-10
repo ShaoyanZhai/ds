@@ -1414,3 +1414,14 @@ if __name__ == '__main__':
     data_thread= threading.Thread(target=accept_connections)
     data_thread.start()
     main()
+def print_attributes(self):
+    print(f"veh_id: {self.veh_id}")
+    print(f"time: {self.time}")
+    print(f"frame: {self.frame}")
+    print(f"speed: {self.speed}")
+    print(f"x: {self.x}")
+    print(f"y: {self.y}")
+    print(f"throttle: {self.throttle}")
+    print(f"steer: {self.steer}")
+    print(f"brake: {self.brake}")
+
